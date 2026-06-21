@@ -9,6 +9,15 @@ module.exports = {
     "./screens/**/*.{js,jsx,ts,tsx,mdx}",
     "./pages/**/*.{js,jsx,ts,tsx,mdx}",
   ],
+  // Make utilities more robust on native (avoid being overridden by platform styles)
+  important: true,
+  safelist: [
+    // common runtime/dynamic patterns used in the app
+    { pattern: /^(bg|text|border)-(secondary|primary|black|gray)(?:-(100|200))?$/ },
+    { pattern: /^font-p[a-zA-Z]+$/ },
+    "min-h-[62px]",
+    { pattern: /^w-\[.*\]$/ },
+  ],
   theme: {
     extend: {
       colors: {
